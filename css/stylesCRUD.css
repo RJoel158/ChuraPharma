@@ -1,0 +1,97 @@
+body{
+    background-color: #010409;
+}
+
+.box{
+    background-color: #151b23;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.card{
+    background-color: #151b23;
+    border: #2a3139 solid 1px;
+    width: 1000px;
+}
+
+label{
+    color: #f0f6fc;
+    margin-left: 3px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 4px;
+    margin: 5px 0 22px 0;
+    border: #2a3139 solid 1px;
+    background: #0d1117;
+    color: #f0f6fc;
+}
+
+input[type="number"]{
+    width: 100%;
+    padding: 4px;
+    margin: 5px 0 22px 0;
+    border: #2a3139 solid 1px;
+    background: #0d1117;
+    color: #f0f6fc;
+}
+
+input[type="select"]{
+    width: 100%;
+    padding: 4px;
+    margin: 5px 0 22px 0;
+    border: #2a3139 solid 1px;
+    background: #0d1117;
+    color: #0d1117;
+}
+
+h2{
+    text-align: center;
+    color: #f0f6fc;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+#btnBack{
+    background-color: #fa4549;
+    color: #f0f6fc;
+    border-radius: 5px;
+}
+
+a{
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+h3{
+    color: #f0f6fc;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.btn{
+    background-color: #238636;
+    color: #f0f6fc;
+    padding: 5px 22px;
+    margin: 4px 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.image-profile{
+    width: 70px;
+    height: 75px;
+}
+
+.btnUpdate{
+    background-color: #2164d2;
+    color: #f0f6fc;
+}
+
+.btnDelete{
+    background-color: #fa4549;
+    color: #f0f6fc;
+}

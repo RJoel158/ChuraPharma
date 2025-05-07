@@ -1,0 +1,52 @@
+body{
+    background-color: #010409;
+}
+
+.box{
+    background-color: #151b23;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+h2{
+    text-align: center;
+    color: #f0f6fc;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+#btnLogOut{
+    background-color: #fa4549;
+    color: #f0f6fc;
+}
+
+h3{
+    color: #f0f6fc;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.btn{
+    background-color: #238636;
+    color: #f0f6fc;
+    padding: 5px 22px;
+    margin: 4px 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.image-profile{
+    width: 70px;
+    height: 75px;
+}
+
+.btnUpdate{
+    background-color: #2164d2;
+    color: #f0f6fc;
+}
+
+.btnDelete{
+    background-color: #fa4549;
+    color: #f0f6fc;
+}
