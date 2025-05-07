@@ -5,6 +5,9 @@ require '../db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
+    $latitude = $_POST['latitud'];
+    $longitude = $_POST['longitud'];
+    $rol = 'cliente';
     $confirm  = $_POST['confirm'];
 
     if (strlen($password) < 8 || $password !== $confirm) {
@@ -17,8 +20,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'El nombre de usuario ya existe.';
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
-            $stmt = $pdo->prepare("INSERT INTO usuario (nombre, contrasenia) VALUES (?, ?)");
-            $stmt->execute([$username, $hash]);
+            $stmt = $pdo->prepare("INSERT INTO usuario (nombre, contrasenia, latitud, longitud, rol) VALUES (?, ?, ?, ?, ?)");
+            if (!isset($error)) {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $stmt = $pdo->prepare(
+                    "INSERT INTO usuario (nombre, contrasenia, latitud, longitud, rol) 
+                     VALUES (?, ?, ?, ?, ?)"
+                );
+                $stmt->execute([
+                    $username,
+                    $hash,
+                    $latitude,
+                    $longitude,
+                    $rol
+                ]);
+                header('Location: login.php');
+                exit();
+            }
             header('Location: login.php');
             exit();
         }
@@ -74,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </form>
             </div>
+        </div>
 
         <div class="card my-3">
             <div class="card-body">
@@ -86,7 +105,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <!-- Mensaje de error: -->
         <!-- <?php if (isset($error)) echo "<div class='alert alert-danger'>$error</div>"; ?> -->
-    </div>
 
     <script>
         const map = L.map('map').setView([-17.7833, -63.1821], 13); // Coordenadas iniciales (Santa Cruz)
