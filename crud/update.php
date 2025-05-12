@@ -5,7 +5,7 @@
 
     try {
         // Consulta para obtener el registro del producto por el id
-        $stmt = $pdo->prepare("SELECT * FROM producto WHERE id = :id");
+        $stmt = $pdo->prepare("SELECT * FROM usuario WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
@@ -14,7 +14,7 @@
 
         // Verifica si el producto fue encontrado
         if (!$producto) {
-            echo "Producto no encontrado.";
+            echo "Usuario no encontrado.";
             exit;
         }
     } catch (PDOException $e) {
@@ -51,37 +51,21 @@
                             <input type="text" name="pr_nombre" class="form-control" value="<?php echo htmlspecialchars($producto['nombre']); ?>" required>
                         </div>
                         <div class="col-4 mb-3">
-                            <label>Precio:</label>
-                            <input type="number" name="pr_precioActual" class="form-control" value="<?php echo htmlspecialchars($producto['precioActual']); ?>" required>
+                            <label>Latitud:</label>
+                            <input type="number" name="pr_precioActual" class="form-control" value="<?php echo htmlspecialchars($producto['longitud']); ?>" required>
                         </div>
                         <div class="col-4 mb-3">
-                            <label>Stock:</label>
-                            <input type="number" name="pr_stock" class="form-control" value="<?php echo htmlspecialchars($producto['stock']); ?>" required>
+                            <label>Longitud:</label>
+                            <input type="number" name="pr_stock" class="form-control" value="<?php echo htmlspecialchars($producto['longitud']); ?>" required>
                         </div>
                         <div class="col-4 mb-3">
-                            <label>Unidad de Medida:</label>
+                            <label>Rol:</label>
                             <select name="pr_unidadMedida" required class="form-select">
-                                <option value="kg" <?php echo ($producto['unidadMedida'] == 'kg') ? 'selected' : ''; ?>>Kilogramos</option>
-                                <option value="g" <?php echo ($producto['unidadMedida'] == 'g') ? 'selected' : ''; ?>>Gramos</option>
-                                <option value="mg" <?php echo ($producto['unidadMedida'] == 'mg') ? 'selected' : ''; ?>>Miligramos</option>
-                                <option value="l" <?php echo ($producto['unidadMedida'] == 'l') ? 'selected' : ''; ?>>Litros</option>
-                                <option value="ml" <?php echo ($producto['unidadMedida'] == 'ml') ? 'selected' : ''; ?>>Mililitros</option>
+                                <option value="administrador" <?php echo ($producto['rol'] == 'administrador') ? 'selected' : ''; ?>>Administrador</option>
+                                <option value="cliente" <?php echo ($producto['rol'] == 'cliente') ? 'selected' : ''; ?>>Cliente</option>
                             </select>
                         </div>
-                        <div class="col-12 mb-3">
-                            <label>Imagen:</label>
-
-                            <?php if (!empty($producto['imagen'])): ?>
-                                <div class="mb-2">
-                                    <!-- Mostrar imagen desde BLOB -->
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($producto['imagen']); ?>" alt="Imagen del producto" style="max-width: 200px; max-height: 200px;">
-                                </div>
-                            <?php endif; ?>
-
-                            <!-- Input de archivo -->
-                            <input type="file" name="pr_imagen" class="form-control">
-                        </div>
-
+                        
                         <button type="submit" class="btn">Actualizar</button>
                     </div>
                 </form>

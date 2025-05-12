@@ -34,10 +34,9 @@ $nombre = $_SESSION['nombre'];
                 <tr>
                     <th class="text-center" scope="col">Id</th>
                     <th class="text-center" scope="col">Nombre</th>
-                    <th class="text-center" scope="col">Precio Actual</th>
-                    <th class="text-center" scope="col">Imagen</th>
-                    <th class="text-center" scope="col">Unidad de Medida</th>
-                    <th class="text-center" scope="col">Stock</th>
+                    <th class="text-center" scope="col">Latitud</th>
+                    <th class="text-center" scope="col">Longitud</th>
+                    <th class="text-center" scope="col">Rol</th>
                     <th class="text-center" scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -63,7 +62,7 @@ $nombre = $_SESSION['nombre'];
                 <?php
                 include 'db.php';
                 // Conexión a la base de datos
-                $query = "SELECT * FROM producto";
+                $query = "SELECT id, nombre, latitud, longitud, rol FROM usuario";
                 $stmt = $pdo->query($query);
 
                 // Verifica si hay resultados
@@ -73,10 +72,9 @@ $nombre = $_SESSION['nombre'];
                         echo "<tr>";
                         echo "<th class='text-center align-middle' scope='row'>" . htmlspecialchars($row['id']) . "</th>";
                         echo "<td class='text-center align-middle'>" . htmlspecialchars($row['nombre']) . "</td>";
-                        echo "<td class='text-center align-middle'>" . htmlspecialchars($row['precioActual']) . "</td>";
-                        echo "<td class='d-flex justify-content-center'><img class='image-profile' src='data:image/jpeg;base64," . base64_encode($row['imagen']) . "' alt=''></td>";
-                        echo "<td class='text-center align-middle'>" . htmlspecialchars($row['unidadMedida']) . "</td>";
-                        echo "<td class='text-center align-middle'>" . htmlspecialchars($row['stock']) . "</td>";
+                        echo "<td class='text-center align-middle'>" . htmlspecialchars($row['latitud']) . "</td>";
+                        echo "<td class='text-center align-middle'>" . htmlspecialchars($row['longitud']) . "</td>";
+                        echo "<td class='text-center align-middle'>" . htmlspecialchars($row['rol']) . "</td>";
                         echo "<td class='text-center align-middle'>
                                 <div class='d-flex justify-content-center'>
                                     <a href='crud/update.php?id=" . htmlspecialchars($row['id']) . "' class='btn btnUpdate'>

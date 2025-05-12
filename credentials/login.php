@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = trim($_POST['nombre']);
     $contrasenia = $_POST['contrasenia'];
 
-    $stmt = $pdo->prepare("SELECT id, contrasenia FROM usuario WHERE nombre = ?");
+    $stmt = $pdo->prepare("SELECT id, contrasenia, rol FROM usuario WHERE nombre = ?");
     $stmt->execute([$nombre]);
     $user = $stmt->fetch();
 
@@ -15,7 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($contrasenia, $user['contrasenia'])) {
             $_SESSION['usuario_id'] = $user['id'];
             $_SESSION['nombre'] = $nombre;
-            header('Location: ../dashboard.php');
+            $_SESSION['rol'] = $user['rol'];
+
+            // Redirigir según el rol
+            if ($user['rol'] === 'cliente') {
+                header('Location: ../index.php');
+            } elseif ($user['rol'] === 'administrador') {
+                header('Location: ../dashboard.php');
+            } else {
+                // Por si hay un rol desconocido
+                $error = 'Rol no válido.';
+                echo $error;
+                exit();
+            }
             exit();
         } else {
             echo "Contraseña incorrecta.";
