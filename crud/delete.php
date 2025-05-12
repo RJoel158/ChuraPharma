@@ -4,7 +4,7 @@
     $id = $_GET['id'];
 
     try {
-        $stmt = $pdo->prepare("DELETE FROM producto WHERE id = :id");
+        $stmt = $pdo->prepare("DELETE FROM usuario WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 

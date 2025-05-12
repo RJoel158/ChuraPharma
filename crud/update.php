@@ -44,7 +44,7 @@
                 <form action="edit.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-12">
-                            <input type="hidden" name="pr_id" value="<?php echo htmlspecialchars($producto['id']); ?>">
+                            <input type="hidden"  name="pr_id" value="<?php echo htmlspecialchars($producto['id']); ?>">
                         </div>
                         <div class="col-12 mb-3">
                             <label>Nombre:</label>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="col-4 mb-3">
                             <label>Latitud:</label>
-                            <input type="number" name="pr_precioActual" class="form-control" value="<?php echo htmlspecialchars($producto['longitud']); ?>" required>
+                            <input type="number" name="pr_precioActual" class="form-control" value="<?php echo htmlspecialchars($producto['latitud']); ?>" required>
                         </div>
                         <div class="col-4 mb-3">
                             <label>Longitud:</label>

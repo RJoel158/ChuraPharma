@@ -20,7 +20,39 @@
         </div>
         <div class="card mb-3">
             <div class="card-body">
-                <form action="save.php" method="POST" enctype="multipart/form-data">
+            <form method="POST" onsubmit="return validateForm()">
+                    <div class="mb-3">
+                        <label>Usuario</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Confirmar contraseña</label>
+                        <input type="password" name="confirm" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn">Registrar</button>
+
+                    <div class="mb-3">
+                        <label class="form-label">Ubicación en el mapa:</label>
+                        <div id="map" style="height: 300px; border-radius: 10px;"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="latitud" class="form-label">Latitud:</label>
+                            <input type="text" name="latitud" id="latitud" class="form-control" readonly required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="longitud" class="form-label">Longitud:</label>
+                            <input type="text" name="longitud" id="longitud" class="form-control" readonly required>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- <form action="save.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Nombre:</label>
@@ -51,7 +83,7 @@
                         </div>
                         <button type="submit" class="btn">Registrar</button>
                     </div>
-                </form>
+                </form> -->
             </div>
         </div>
     </div>

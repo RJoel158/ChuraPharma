@@ -26,8 +26,8 @@ $nombre = $_SESSION['nombre'];
 
     <div class="box">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3>Lista de Productos</h3>
-            <a href="crud/insert.php" class="btn">Insertar Producto</a>
+            <h3>Lista de Usuarios</h3>
+            <a href="crud/insert.php" class="btn">Registra Usuario</a>
         </div>
         <table class="table table-dark table-striped">
             <thead>
@@ -80,7 +80,7 @@ $nombre = $_SESSION['nombre'];
                                     <a href='crud/update.php?id=" . htmlspecialchars($row['id']) . "' class='btn btnUpdate'>
                                         <i class='bi bi-pencil-square'></i>
                                     </a>
-                                    <a href='crud/delete.php?id=" . htmlspecialchars($row['id']) . "' class='btn btnDelete'>
+                                    <a  href='crud/delete.php?id=" . htmlspecialchars($row['id']) . "' class='btn btnDelete'>
                                         <i class='bi bi-trash'></i>
                                     </a>
                                 </div>
